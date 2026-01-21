@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Vision Helper - Captcha Resolver",
+    "version": "2.2",
+    "description": "Right click on a captcha to resolve and paste it automatically.",
+    "permissions": [
+        "contextMenus",
+        "activeTab",
+        "scripting",
+        "clipboardWrite",
+        "notifications"
+    ],
+    "host_permissions": [
+        "https://api.ocr.space/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}

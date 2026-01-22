@@ -31,12 +31,12 @@ async function handleCapture() {
         const base64Image = await processElement(element);
 
         // DEBUG: Auto-download the cleaned image
-        const debugLink = document.createElement('a');
-        debugLink.href = base64Image;
-        debugLink.download = `captcha_debug_${Date.now()}.png`;
-        document.body.appendChild(debugLink);
-        debugLink.click();
-        debugLink.remove();
+        // const debugLink = document.createElement('a');
+        // debugLink.href = base64Image;
+        // debugLink.download = `captcha_debug_${Date.now()}.png`;
+        // document.body.appendChild(debugLink);
+        // debugLink.click();
+        // debugLink.remove();
 
         chrome.runtime.sendMessage({ action: "solve_image", imageData: base64Image }, response => {
             removeOverlay();

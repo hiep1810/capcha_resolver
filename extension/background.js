@@ -4,7 +4,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "resolve-captcha",
-        title: "Resolve Captcha",
+        title: "Giải mã Captcha",
         contexts: ["all"]
     });
 });
@@ -39,7 +39,7 @@ async function solveCaptcha(base64Image) {
     formData.append("base64Image", base64Image);
     formData.append("language", "eng");
     formData.append("isOverlayRequired", "false");
-    formData.append("OCREngine", "3"); // Best for stylized fonts
+    formData.append("OCREngine", "2"); // Best for captchas with complex backgrounds
     formData.append("scale", "true");
 
     try {
